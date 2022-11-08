@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "1f3016da-8b38-4958-ba13-a5e8cde3edaf",
+		"name": "E-Commerce-API(a)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23660197"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "create new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"marisol@email.com\",\n    \"password\": \"chickaunli\",\n    \"username\": \"@marisol\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve user details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0M2Q4MmQ3MDY2Y2YzZGU1MTU2ZiIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1NDE4NTY0fQ.lX8Jj01rwsQGKgBJ-9F7xt9891Obz7xh5L3iMLFNdxw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/users/634444112d7066cf3de51571/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"users",
+								"634444112d7066cf3de51571",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user authentication/login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"@marites\",\n    \"password\":\"chickaunli\"\n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "set user as admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0M2Q4MmQ3MDY2Y2YzZGU1MTU2ZiIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1NDUxNDE5fQ.cqiofqQE9v2ARWOxjcF2gQ2-wVEXE4W2mXyZir1qoyE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isAdmin\": true\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/users/634444112d7066cf3de51571/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"users",
+								"634444112d7066cf3de51571",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "create new product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0M2Q4MmQ3MDY2Y2YzZGU1MTU2ZiIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1NDU1OTQ4fQ.RytsSfiSL-L5X31qDabvizFpvQ6V9BTfQolWNyCvOu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"name\": \"headP-NP001\",\n\t\t\"description\": \"Top of the line headphonw with noise cancellation\",\n\t\t\"price\": 15000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/products/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"products",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/products/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve all active products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/products/active",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"products",
+								"active"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve a product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/products/6342b917d236dd70f5b45ae8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"products",
+								"6342b917d236dd70f5b45ae8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDJkYzVmN2QzYWM4MWIwMjBjYzM4NiIsImVtYWlsIjoibWFyaXRlc0BlbWFpbC5jb20iLCJpc0FkbWluIjpmYWxzZSwiaWF0IjoxNjY1MzY0MjA5fQ.xHA729QG542xfjjttPX7gfvKneo6ZEnw99RSe8cbcxM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n          \"name\": \"headP-NP001\",\n        \"description\": \"Top of the line headphone with noise cancellation\",\n        \"price\": 15000\n        \n\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/products/6344d75e81a4c49e51547106/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"products",
+								"6344d75e81a4c49e51547106",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "archive a product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDEwMzNkNmRmYzRiNjk3ODZmNjYxNCIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1MzY0NjE1fQ.3HC836dOJNf2BsRz3VJvfUEAOrWkw_Npux0brUZ5VyE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/products/63427a01d0045aba276d157c/archive",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"products",
+								"63427a01d0045aba276d157c",
+								"archive"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "orders",
+			"item": [
+				{
+					"name": "create order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0NDM2MmQ3MDY2Y2YzZGU1MTU3NCIsImVtYWlsIjoibWFyaXBvc2FAZW1haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY2NTQ2NTMxNn0.3wXqUZGWICq2bCSaSBpGkhCe8bDJfT1DTvsmjQrKosk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"userId\": \"634444592d7066cf3de51576\",\n        \"productId\":\"6344d82781a4c49e5154710d\",\n        \"quantity\": 2,\n\t\t\"totalAmount\":  6000\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/orders/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"orders",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve all orders(Admin Only)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0M2Q4MmQ3MDY2Y2YzZGU1MTU2ZiIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1NDU1OTQ4fQ.RytsSfiSL-L5X31qDabvizFpvQ6V9BTfQolWNyCvOu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/orders/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"orders",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve authenticated orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0M2Q4MmQ3MDY2Y2YzZGU1MTU2ZiIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1NDU1OTQ4fQ.RytsSfiSL-L5X31qDabvizFpvQ6V9BTfQolWNyCvOu0",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8008/orders/auth_order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"orders",
+								"auth_order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "approve an order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNDQ0M2Q4MmQ3MDY2Y2YzZGU1MTU2ZiIsImVtYWlsIjoiQWRtaW5AZW1haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjY1NDY1NDk4fQ.My5_m1z977UYSep_VBPgBZWNf_P7bHwYJCe9z2WAiQE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"isApprove\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8008/orders/634504112ebdbcc8b1d9d738/approve",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8008",
+							"path": [
+								"orders",
+								"634504112ebdbcc8b1d9d738",
+								"approve"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
